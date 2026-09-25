@@ -1,0 +1,21 @@
+/* Three-column catalogue card with a true poster aspect ratio.
+ * @author Marlon Packard Viza Quispe */
+:host { display: block; height: 100%; min-width: 0; }
+mat-card { height: 100%; overflow: hidden; display: flex; flex-direction: column; border: 1px solid #41445a; border-radius: 15px; background: #25283a; color: #f1f2f8; transition: transform .16s ease, border-color .16s ease; }
+mat-card:hover { transform: translateY(-3px); border-color: #ef7291; }
+.poster { height: 310px; position: relative; overflow: hidden; background: #353a50; }
+.poster img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+.rating { position: absolute; top: 15px; right: 15px; padding: 7px 10px; border-radius: 6px; background: #131624e8; color: #fff; font-size: 12px; font-weight: 700; }
+.rating span { color: #ffc36d; }
+mat-card-content { padding: 21px 21px 0; }
+h3 { font-size: 19px; line-height: 1.35; margin: 0 0 9px; color: #fff; min-height: 52px; overflow-wrap: anywhere; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px; color: #bcc0d1; font-size: 12px; margin-bottom: 22px; }
+.divider { color: #f48ca5; }
+dl { display: grid; grid-template-columns: 1fr 1fr; gap: 15px 12px; margin: 0; }
+dl > div { min-width: 0; }
+.full-row { grid-column: 1 / -1; }
+dt { text-transform: uppercase; letter-spacing: 1.2px; font-size: 10px; color: #a5a9be; margin: 0 0 6px; }
+dd { color: #f3f3f7; font-size: 13px; line-height: 1.5; margin: 0; overflow-wrap: anywhere; }
+mat-card-actions { padding: 24px 21px 21px; margin-top: auto; }
+button { width: 100%; min-height: 43px; font-weight: 700; border-radius: 8px; }
+button span { margin-left: 8px; }

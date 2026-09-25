@@ -1,0 +1,60 @@
+{
+  "app": { "title": "TV Series Explorer" },
+  "a11y": {
+    "skip": "Skip to series catalogue",
+    "language": "Interface language",
+    "category": "Search category",
+    "logo": "TVmaze logo",
+    "logoFallback": "TVmaze logo unavailable",
+    "poster": "Poster for {{name}}",
+    "posterFallback": "Poster unavailable for {{name}}",
+    "rating": "Rating {{rating}} out of 10",
+    "details": "Series Details for {{name}}",
+    "officialSite": "Visit official website for {{name}} (opens in a new tab)"
+  },
+  "hero": {
+    "eyebrow": "STORIES WORTH EXPLORING",
+    "lineOne": "Find your next",
+    "lineTwo": "favorite story.",
+    "description": "Explore the worlds of Star and Love. Browse standout series, discover their stories, and follow your curiosity."
+  },
+  "catalogue": {
+    "eyebrow": "EXPLORE",
+    "title": "Series Catalogue",
+    "description": "Curated results from the TVmaze universe, in relevance order.",
+    "star": "Star",
+    "love": "Love",
+    "showing": "Showing",
+    "results": "series",
+    "loading": "Finding series…",
+    "error": "We couldn't load the series.",
+    "errorHelp": "Check your connection and try again.",
+    "retry": "Try again",
+    "empty": "No series found for this search."
+  },
+  "card": {
+    "language": "Language",
+    "genres": "Genres",
+    "status": "Status",
+    "rating": "Rating",
+    "details": "Series Details"
+  },
+  "dialog": {
+    "label": "SERIES DETAILS",
+    "heading": "Series Details",
+    "close": "Close details",
+    "loading": "Loading series details…",
+    "error": "The details are unavailable. Please try again later.",
+    "premiered": "Premiered",
+    "runtime": "Runtime",
+    "minutes": "minutes",
+    "overview": "Overview",
+    "noOverview": "No overview is available for this series.",
+    "officialSite": "Official website"
+  },
+  "common": { "unavailable": "Not available" },
+  "footer": {
+    "copyright": "Copyright © 2026 TV Series Explorer. All rights reserved.",
+    "developedBy": "Developed by"
+  }
+}

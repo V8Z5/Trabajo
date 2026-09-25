@@ -1,0 +1,7 @@
+/* Keyboard focus and selection are visible throughout the catalogue.
+ * @author Marlon Packard Viza Quispe */
+:focus-visible { outline: 3px solid #e35069 !important; outline-offset: 3px; }
+::selection { background: #f7bbc5; color: #16192f; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

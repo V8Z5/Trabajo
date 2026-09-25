@@ -1,0 +1,28 @@
+/* Cinematic introduction and responsive three-column catalogue.
+ * @author Marlon Packard Viza Quispe */
+.hero { border-bottom: 1px solid #3a3b52; background: radial-gradient(circle at 83% 50%, #4b2e52 0, #28253d 36%, #202236 75%); overflow: hidden; }
+.hero-inner { max-width: 1250px; margin: auto; min-height: 290px; padding: 45px 28px; display: flex; align-items: center; justify-content: space-between; gap: 35px; }
+.hero-copy { max-width: 670px; position: relative; z-index: 1; }
+.eyebrow { font-size: 10px; letter-spacing: 2.3px; font-weight: 750; color: #ff9aaf; margin: 0 0 16px; }
+.eyebrow span { margin: 0 8px; }
+.hero h2 { font-family: Georgia, serif; font-size: clamp(39px, 4vw, 62px); font-weight: 400; line-height: 1.13; letter-spacing: -1.5px; color: #fff; margin: 0 0 16px; }
+.hero h2 em { color: #ff9eb3; font-weight: 400; }
+.hero-copy > p:last-child { font-size: 14px; line-height: 1.75; color: #c8cad9; max-width: 540px; margin: 0; }
+.hero-art { position: relative; width: 270px; height: 205px; flex: 0 0 270px; border: 1px solid #ab718a5e; border-radius: 50%; transform: rotate(-15deg); box-shadow: 0 0 0 32px #ab718a15, 0 0 0 65px #ab718a0a; }
+.hero-art span { position: absolute; font-size: 75px; color: #fd8dab; text-shadow: 0 12px 45px #ec5c8b55; }
+.hero-art span:nth-child(1) { top: 48px; left: 95px; }.hero-art span:nth-child(2) { top: 0; left: 20px; font-size: 35px; }.hero-art span:nth-child(3) { bottom: 6px; right: 17px; font-size: 43px; }
+.catalogue { max-width: 1250px; margin: auto; padding: 48px 28px 75px; }
+.catalogue-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+.catalogue-header h2 { color: #fff; font-size: 30px; margin: 0 0 8px; letter-spacing: -.6px; }
+.subtitle { color: #b5b8ca; font-size: 13px; margin: 0; }
+.count { color: #bfc2d0; font-size: 12px; white-space: nowrap; }
+.controls { display: flex; align-items: center; justify-content: space-between; gap: 14px; border-bottom: 1px solid #3a3e52; padding: 24px 0 27px; margin-bottom: 24px; }
+mat-button-toggle-group { border-radius: 9px; border: 1px solid #505366; font-size: 13px; font-weight: 650; }
+.selection-note { color: #adb1c5; font-size: 11px; }.selection-note strong { color: #fff; }
+.series-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 23px; list-style: none; margin: 0; padding: 0; }
+.series-grid li { min-width: 0; }
+.state-panel { min-height: 290px; background: #25283a; border: 1px solid #41445a; border-radius: 15px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 25px; }
+.state-panel h3 { color: #fff; font-size: 19px; margin: 19px 0 8px; }.state-panel p { color: #bbc0d2; font-size: 13px; }.state-mark { color: #ff829e; font-size: 35px; }
+.state-panel button { margin-top: 12px; }
+@media (max-width: 970px) { .series-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .hero-art { flex-basis: 170px; width: 170px; height: 145px; } }
+@media (max-width: 620px) { .hero-inner { min-height: auto; padding: 35px 18px; } .hero-art { display: none; } .hero h2 { font-size: 39px; } .catalogue { padding: 33px 16px 50px; } .catalogue-header { align-items: flex-start; flex-direction: column; } .controls { align-items: flex-start; flex-direction: column; } .series-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; } }

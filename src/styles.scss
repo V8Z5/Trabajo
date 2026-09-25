@@ -1,0 +1,15 @@
+/* Material theme and layout foundations. @author Marlon Packard Viza Quispe */
+@use '@angular/material' as mat;
+html {
+  @include mat.theme((color: (primary: mat.$rose-palette, tertiary: mat.$red-palette), typography: Arial, density: 0));
+  @include mat.button-overrides((filled-container-color: #b31948, filled-label-text-color: #fff, outlined-label-text-color: #f8a0b4));
+  @include mat.button-toggle-overrides((selected-state-background-color: #e7597c, selected-state-text-color: #fff, text-color: #e8d9e1, height: 39px));
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: #1b1e30; color: #f0f1f9; font-family: Arial, Helvetica, sans-serif; -webkit-font-smoothing: antialiased; }
+app-root { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 9999; padding: 12px; background: #fff; color: #171a2b; border-radius: 6px; transform: translateY(-180%); }
+.skip-link:focus { transform: translateY(0); }
+.cdk-overlay-container .mat-mdc-dialog-surface { background: #25283a; border: 1px solid #53596e; }

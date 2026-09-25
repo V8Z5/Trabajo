@@ -1,0 +1,44 @@
+<!-- Main view, category controls, and a responsive three-column card grid.
+     @author Marlon Packard Viza Quispe -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero-inner">
+    <div class="hero-copy"><p class="eyebrow">TVMAZE <span aria-hidden="true">/</span> {{ 'hero.eyebrow' | translate }}</p>
+      <h2 id="hero-heading">{{ 'hero.lineOne' | translate }}<br><em>{{ 'hero.lineTwo' | translate }}</em></h2>
+      <p>{{ 'hero.description' | translate }}</p>
+    </div>
+    <div class="hero-art" aria-hidden="true"><span>★</span><span>♥</span><span>✦</span></div>
+  </div>
+</section>
+
+<section id="catalogue" class="catalogue" tabindex="-1" [attr.aria-busy]="catalogue.state().status === 'loading'" aria-labelledby="catalogue-heading">
+  <div class="catalogue-header">
+    <div><p class="eyebrow">01 / {{ 'catalogue.eyebrow' | translate }}</p>
+      <h2 id="catalogue-heading">{{ 'catalogue.title' | translate }}</h2>
+      <p class="subtitle">{{ 'catalogue.description' | translate }}</p></div>
+    <span class="count" role="status" aria-live="polite">@if (catalogue.state().status === 'success') { {{ catalogue.state().series.length }} {{ 'catalogue.results' | translate }} }</span>
+  </div>
+  <div class="controls">
+    <mat-button-toggle-group [value]="catalogue.term()" (change)="selectTerm($event.value)"
+      [hideSingleSelectionIndicator]="true" [attr.aria-label]="'a11y.category' | translate">
+      <mat-button-toggle value="star">★ {{ 'catalogue.star' | translate }}</mat-button-toggle>
+      <mat-button-toggle value="love">♥ {{ 'catalogue.love' | translate }}</mat-button-toggle>
+    </mat-button-toggle-group>
+    <span class="selection-note">{{ 'catalogue.showing' | translate }} <strong>{{ ('catalogue.' + catalogue.term()) | translate }}</strong></span>
+  </div>
+  @switch (catalogue.state().status) {
+    @case ('loading') { <div class="state-panel" role="status"><mat-spinner diameter="38" [attr.aria-label]="'catalogue.loading' | translate" />
+      <h3>{{ 'catalogue.loading' | translate }}</h3></div> }
+    @case ('error') { <div class="state-panel" role="alert"><span class="state-mark" aria-hidden="true">!</span>
+      <h3>{{ 'catalogue.error' | translate }}</h3><p>{{ 'catalogue.errorHelp' | translate }}</p>
+      <button mat-flat-button (click)="catalogue.retry()">{{ 'catalogue.retry' | translate }}</button></div> }
+    @case ('success') {
+      @if (catalogue.state().series.length) {
+        <ul class="series-grid" [attr.aria-label]="'catalogue.title' | translate">
+          @for (series of catalogue.state().series; track series.id) {
+            <li><app-series-card [series]="series" (detailsRequested)="openDetails($event)" /></li>
+          }
+        </ul>
+      } @else { <div class="state-panel" role="status"><h3>{{ 'catalogue.empty' | translate }}</h3></div> }
+    }
+  }
+</section>

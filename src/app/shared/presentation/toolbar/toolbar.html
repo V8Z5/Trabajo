@@ -1,0 +1,21 @@
+<!-- Brand identity and accessible language toggle.
+     @author Marlon Packard Viza Quispe -->
+<header>
+  <mat-toolbar>
+    <div class="toolbar-inner">
+      <div class="brand">
+        <span class="logo-frame">
+          @if (logoUrl() && !logoFailed()) {
+            <img [src]="logoUrl()" [alt]="'a11y.logo' | translate" width="35" height="35" (error)="logoFailed.set(true)">
+          } @else { <span class="logo-fallback" role="img" [attr.aria-label]="'a11y.logoFallback' | translate">TV</span> }
+        </span>
+        <div class="brand-copy"><span>TVmaze / 2026</span><h1>{{ 'app.title' | translate }}</h1></div>
+      </div>
+      <mat-button-toggle-group [value]="languageState.language()" (change)="selectLanguage($event.value)"
+        [hideSingleSelectionIndicator]="true" [attr.aria-label]="'a11y.language' | translate">
+        <mat-button-toggle value="en" aria-label="English" lang="en">EN</mat-button-toggle>
+        <mat-button-toggle value="es" aria-label="Español" lang="es">ES</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </mat-toolbar>
+</header>

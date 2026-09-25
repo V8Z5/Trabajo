@@ -1,0 +1,40 @@
+<!-- Selected show details, with accessible loading/error states.
+     @author Marlon Packard Viza Quispe -->
+<div class="dialog-shell">
+  <div class="dialog-heading">
+    <div><span class="eyebrow">TVMAZE / {{ 'dialog.label' | translate }}</span>
+      <h2 id="series-details-heading" mat-dialog-title>{{ detail().series?.name || ('dialog.heading' | translate) }}</h2></div>
+    <button mat-icon-button mat-dialog-close type="button"><span class="visually-hidden">{{ 'dialog.close' | translate }}</span><span aria-hidden="true">✕</span></button>
+  </div>
+  <mat-dialog-content>
+    @switch (detail().status) {
+      @case ('loading') { <div class="dialog-state" role="status"><mat-spinner diameter="32" [attr.aria-label]="'dialog.loading' | translate" /><p>{{ 'dialog.loading' | translate }}</p></div> }
+      @case ('error') { <div class="dialog-state" role="alert"><p>{{ 'dialog.error' | translate }}</p></div> }
+      @case ('success') {
+        @if (detail().series; as series) {
+          <div class="detail-layout">
+            <img class="detail-poster" [src]="series.imageUrl && !imageFailed() ? series.imageUrl : posterFallback"
+              [alt]="series.imageUrl && !imageFailed() ? ('a11y.poster' | translate:{name: series.name}) : ('a11y.posterFallback' | translate:{name: series.name})"
+              (error)="imageFailed.set(true)" width="180" height="252">
+            <div class="detail-copy">
+              <dl>
+                <div><dt>{{ 'card.status' | translate }}</dt><dd>{{ series.status || ('common.unavailable' | translate) }}</dd></div>
+                <div><dt>{{ 'card.language' | translate }}</dt><dd>{{ series.language || ('common.unavailable' | translate) }}</dd></div>
+                <div><dt>{{ 'card.genres' | translate }}</dt><dd>{{ series.genres.join(', ') || ('common.unavailable' | translate) }}</dd></div>
+                <div><dt>{{ 'card.rating' | translate }}</dt><dd>{{ series.averageRating !== null ? series.averageRating + ' / 10' : ('common.unavailable' | translate) }}</dd></div>
+                <div><dt>{{ 'dialog.premiered' | translate }}</dt><dd>{{ series.premiered || ('common.unavailable' | translate) }}</dd></div>
+                <div><dt>{{ 'dialog.runtime' | translate }}</dt><dd>{{ series.runtime !== null ? series.runtime + ' ' + ('dialog.minutes' | translate) : ('common.unavailable' | translate) }}</dd></div>
+              </dl>
+              <h3>{{ 'dialog.overview' | translate }}</h3>
+              <p class="summary">{{ series.summary || ('dialog.noOverview' | translate) }}</p>
+              @if (series.officialSite) {
+                <a mat-stroked-button [href]="series.officialSite" target="_blank" rel="noopener noreferrer"
+                  [attr.aria-label]="'a11y.officialSite' | translate:{name: series.name}">{{ 'dialog.officialSite' | translate }} ↗</a>
+              }
+            </div>
+          </div>
+        }
+      }
+    }
+  </mat-dialog-content>
+</div>

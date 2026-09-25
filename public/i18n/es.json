@@ -1,0 +1,60 @@
+{
+  "app": { "title": "Explorador de Series de TV" },
+  "a11y": {
+    "skip": "Ir al catálogo de series",
+    "language": "Idioma de la interfaz",
+    "category": "Categoría de búsqueda",
+    "logo": "Logo de TVmaze",
+    "logoFallback": "Logo de TVmaze no disponible",
+    "poster": "Póster de {{name}}",
+    "posterFallback": "Póster no disponible para {{name}}",
+    "rating": "Calificación {{rating}} de 10",
+    "details": "Detalles de la serie {{name}}",
+    "officialSite": "Visitar sitio oficial de {{name}} (se abre en una pestaña nueva)"
+  },
+  "hero": {
+    "eyebrow": "HISTORIAS PARA DESCUBRIR",
+    "lineOne": "Encuentra tu próxima",
+    "lineTwo": "historia favorita.",
+    "description": "Explora los mundos de Star y Love. Descubre series destacadas, conoce sus historias y sigue tu curiosidad."
+  },
+  "catalogue": {
+    "eyebrow": "EXPLORAR",
+    "title": "Catálogo de Series",
+    "description": "Resultados de TVmaze ordenados por relevancia.",
+    "star": "Star",
+    "love": "Love",
+    "showing": "Mostrando",
+    "results": "series",
+    "loading": "Buscando series…",
+    "error": "No pudimos cargar las series.",
+    "errorHelp": "Comprueba tu conexión e inténtalo de nuevo.",
+    "retry": "Intentar de nuevo",
+    "empty": "No se encontraron series para esta búsqueda."
+  },
+  "card": {
+    "language": "Idioma",
+    "genres": "Géneros",
+    "status": "Estado",
+    "rating": "Calificación",
+    "details": "Detalles de la serie"
+  },
+  "dialog": {
+    "label": "DETALLES DE LA SERIE",
+    "heading": "Detalles de la serie",
+    "close": "Cerrar detalles",
+    "loading": "Cargando detalles de la serie…",
+    "error": "Los detalles no están disponibles. Inténtalo más tarde.",
+    "premiered": "Estreno",
+    "runtime": "Duración",
+    "minutes": "minutos",
+    "overview": "Sinopsis",
+    "noOverview": "No hay sinopsis disponible para esta serie.",
+    "officialSite": "Sitio web oficial"
+  },
+  "common": { "unavailable": "No disponible" },
+  "footer": {
+    "copyright": "Copyright © 2026 TV Series Explorer. Todos los derechos reservados.",
+    "developedBy": "Desarrollado por"
+  }
+}

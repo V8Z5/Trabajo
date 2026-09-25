@@ -1,0 +1,28 @@
+<!-- Show image, metadata, and details action.
+     @author Marlon Packard Viza Quispe -->
+<mat-card appearance="outlined" [attr.aria-label]="series().name">
+  <div class="poster">
+    <img [src]="series().imageUrl && !imageFailed() ? series().imageUrl : fallback"
+      [alt]="series().imageUrl && !imageFailed() ? ('a11y.poster' | translate:{name: series().name}) : ('a11y.posterFallback' | translate:{name: series().name})"
+      (error)="imageFailed.set(true)" loading="lazy" width="210" height="295">
+    @if (series().averageRating !== null) {
+      <span class="rating" [attr.aria-label]="'a11y.rating' | translate:{rating: series().averageRating}">
+        <span aria-hidden="true">★</span> {{ series().averageRating?.toFixed(1) }}
+      </span>
+    }
+  </div>
+  <mat-card-content>
+    <h3>{{ series().name }}</h3>
+    <div class="meta"><span>{{ series().status || ('common.unavailable' | translate) }}</span><span class="divider" aria-hidden="true">·</span><span>{{ series().language || ('common.unavailable' | translate) }}</span></div>
+    <dl>
+      <div><dt>{{ 'card.language' | translate }}</dt><dd>{{ series().language || ('common.unavailable' | translate) }}</dd></div>
+      <div><dt>{{ 'card.status' | translate }}</dt><dd>{{ series().status || ('common.unavailable' | translate) }}</dd></div>
+      <div class="full-row"><dt>{{ 'card.genres' | translate }}</dt><dd>{{ series().genres.length ? series().genres.join(', ') : ('common.unavailable' | translate) }}</dd></div>
+      <div class="full-row"><dt>{{ 'card.rating' | translate }}</dt><dd>{{ series().averageRating !== null ? series().averageRating?.toFixed(1) + ' / 10' : ('common.unavailable' | translate) }}</dd></div>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button type="button" (click)="openDetails()"
+      [attr.aria-label]="'a11y.details' | translate:{name: series().name}">{{ 'card.details' | translate }} <span aria-hidden="true">↗</span></button>
+  </mat-card-actions>
+</mat-card>
