@@ -5,7 +5,7 @@
     <div class="toolbar-inner">
       <div class="brand">
         <span class="logo-frame">
-          @if (logoUrl() && !logoFailed()) {
+          @if (!logoFailed()) {
             <img [src]="logoUrl()" [alt]="'a11y.logo' | translate" width="35" height="35" (error)="logoFailed.set(true)">
           } @else { <span class="logo-fallback" role="img" [attr.aria-label]="'a11y.logoFallback' | translate">TV</span> }
         </span>

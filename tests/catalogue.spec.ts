@@ -41,6 +41,16 @@ test('defaults to Star and preserves exactly the first twelve relevance results'
   await expect(page.getByRole('contentinfo')).toContainText('u202322849 · Marlon Packard Viza Quispe');
 });
 
+test('shows the TVmaze icon in the toolbar without a Logo.dev token', async ({ page }) => {
+  await arrange(page);
+  await page.route('https://static.tvmaze.com/images/favico/apple-touch-icon-120x120.png', (route) =>
+    route.fulfill({ contentType: 'image/png', body: Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/BuoAAAAASUVORK5CYII=', 'base64') }));
+  await page.goto('/');
+  const logo = page.getByRole('img', { name: 'TVmaze logo' });
+  await expect(logo).toBeVisible();
+  await expect(logo).toHaveAttribute('src', 'https://static.tvmaze.com/images/favico/apple-touch-icon-120x120.png');
+});
+
 test('switches to Love, translates all fixed UI text, and keeps selections independent', async ({ page }) => {
   await arrange(page);
   await page.goto('/');

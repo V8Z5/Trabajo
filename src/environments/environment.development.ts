@@ -11,6 +11,7 @@ export const environment = {
   logoApiUrl: 'https://img.logo.dev',
   logoDomain: 'tvmaze.com',
   logoPublishableToken: '',
+  tvmazeLogoUrl: 'https://static.tvmaze.com/images/favico/apple-touch-icon-120x120.png',
   translationsPath: '/i18n/',
   imageFallbackPath: '/poster-placeholder.svg',
   developerCode: 'u202322849',

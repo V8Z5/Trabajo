@@ -13,7 +13,7 @@ TV Series Explorer is a responsive Angular 22 and Angular Material application f
 - Node.js **24.15 or later**, **22.22.3 or later**, or a compatible version supported by Angular 22.
 - npm 11 or a compatible npm version.
 - An internet connection to load TVmaze data and posters.
-- Optional: a **Logo.dev publishable token** (`pk_…`) to show the official TVmaze logo from Logo.dev. Without a token, the toolbar presents a clearly marked TV fallback. The image URL is assembled from the configured `tvmaze.com` domain.
+- Optional: a **Logo.dev publishable token** (`pk_…`) to serve the TVmaze logo through Logo.dev. Without a token, the toolbar shows TVmaze's published icon instead.
 
 ## Getting started in JetBrains WebStorm
 
@@ -28,9 +28,9 @@ Visit [http://localhost:4200](http://localhost:4200). WebStorm can also run the 
 
 ## Configuration
 
-The files `src/environments/environment.development.ts` and `src/environments/environment.ts` hold the API URL, route paths, translation path, logo endpoint and domain, public logo token, poster fallback path, and developer attribution for development and production respectively. The Angular development configuration replaces the production environment file during `npm start`.
+The files `src/environments/environment.development.ts` and `src/environments/environment.ts` hold the API URL, route paths, translation path, logo endpoint and domain, TVmaze icon URL, public logo token, poster fallback path, and developer attribution for development and production respectively. The Angular development configuration replaces the production environment file during `npm start`.
 
-To activate the real TVmaze logo from **Logo.dev**, obtain a free **publishable** token at [Logo.dev](https://www.logo.dev/) and set `logoPublishableToken` in both environment files. It is a public browser key, never a private API secret. Logo.dev requires it for requests to `https://img.logo.dev/tvmaze.com`.
+To serve the TVmaze logo from **Logo.dev**, obtain a free **publishable** token at [Logo.dev](https://www.logo.dev/) and set `logoPublishableToken` in both environment files. It is a public browser key, never a private API secret. Logo.dev requires it for requests to `https://img.logo.dev/tvmaze.com`. The default image is TVmaze's published 120 × 120 icon; a text fallback is shown if the image cannot load.
 
 ## Features
 

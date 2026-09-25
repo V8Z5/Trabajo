@@ -1,6 +1,6 @@
 /**
  * Material toolbar with the TVmaze identity and language selector.
- * @remarks A Logo.dev logo is loaded when a publishable key is configured.
+ * @remarks Uses Logo.dev when configured and TVmaze's published icon otherwise.
  * @author Marlon Packard Viza Quispe
  */
 import { ChangeDetectionStrategy, Component, computed, inject, signal } from '@angular/core';
@@ -23,7 +23,7 @@ export class Toolbar {
   readonly logoFailed = signal(false);
   readonly logoUrl = computed(() => environment.logoPublishableToken
     ? `${environment.logoApiUrl}/${environment.logoDomain}?token=${encodeURIComponent(environment.logoPublishableToken)}&format=png&size=96`
-    : null);
+    : environment.tvmazeLogoUrl);
 
   /** Applies a selected supported language. */
   selectLanguage(language: Language): void {
